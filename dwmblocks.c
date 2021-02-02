@@ -229,7 +229,7 @@ void buttonhandler(int sig, siginfo_t *si, void *ucontext)
 		setsid();
 		execvp(command[0], command);
 		exit(EXIT_SUCCESS);
-		cmd[22] = '\0';
+        cmd[22] = '\0';
 	}
 }
 #endif
