@@ -9,5 +9,6 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-cmd=$(free --mebi | sed -n '2{p;q}' | awk '{printf ("[💿 %2.2fGiB/%2.2fGiB]\n", ( $3 / 1024), ($2 / 1024))}')
+# cmd=$(free --mebi | sed -n '2{p;q}' | awk '{printf ("[💿 %2.2fGiB/%2.2fGiB]\n", ( $3 / 1024), ($2 / 1024))}')
+cmd=$(free -h | awk '/^Mem/ { print ("[💿 "$3"/"$2"]") }' | sed s/i//g)
 printf "$cmd"
